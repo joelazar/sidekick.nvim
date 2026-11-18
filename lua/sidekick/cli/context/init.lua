@@ -206,7 +206,7 @@ function M.ctx()
   return {
     win = win,
     buf = buf,
-    cwd = vim.fs.normalize(vim.fn.getcwd(win)),
+    cwd = vim.fs.normalize(vim.fn.getcwd(win, vim.api.nvim_win_get_tabpage(win))),
     row = cursor[1],
     col = cursor[2] + 1,
     range = M.selection(buf),
